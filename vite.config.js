@@ -1,11 +1,15 @@
-/** @type {import('vite').UserConfig} */
-export default {
-  pages: {
-    '/register': {
-      entry: 'src/pages/register/index.html',
-    },
-    '/login': {
-      entry: 'src/pages/login/index.html',
+// vite.config.js
+import { resolve } from 'path';
+import { defineConfig } from 'vite';
+
+export default defineConfig({
+  build: {
+    rollupOptions: {
+      input: {
+        main: resolve(__dirname, 'index.html'),
+        register: resolve(__dirname, 'register/index.html'),
+        login: resolve(__dirname, 'login/index.html'),
+      },
     },
   },
-};
+});
